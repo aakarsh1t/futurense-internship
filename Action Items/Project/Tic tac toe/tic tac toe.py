@@ -228,7 +228,7 @@ def play():
 				activeforeground='white',
 				activebackground="red", bg="white",
 				fg="black", width=500, font='summer', bd=5)
-
+	
 	B2 = Button(menu, text="Multi Player", command=wpl,
 				activeforeground='white',
 				activebackground="red", bg="white",
