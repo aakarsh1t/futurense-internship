@@ -2,6 +2,7 @@
 # using tkinter
 
 # importing all necessary libraries
+import time
 import random
 import tkinter
 from tkinter import *
@@ -122,6 +123,7 @@ def pc():
 		if len(edge) > 0:
 			move = random.randint(0, len(edge)-1)
 			return edge[move]
+	
 
 # Configure text on button while playing with system
 
@@ -134,24 +136,30 @@ def get_text_pc(i, j, gb, l1, l2):
 			l2.config(state=ACTIVE)
 			board[i][j] = "X"
 		else:
+			
 			button[i][j].config(state=ACTIVE)
 			l2.config(state=DISABLED)
 			l1.config(state=ACTIVE)
 			board[i][j] = "O"
+		
 		sign += 1
 		button[i][j].config(text=board[i][j])
 	x = True
+	time.sleep(0.5)
 	if winner(board, "X"):
 		gb.destroy()
 		x = False
+		time.sleep(1)
 		box = messagebox.showinfo("Winner", "Player won the match")
 	elif winner(board, "O"):
 		gb.destroy()
 		x = False
+		time.sleep(1)
 		box = messagebox.showinfo("Winner", "Computer won the match")
 	elif(isfull()):
 		gb.destroy()
 		x = False
+		time.sleep(1)
 		box = messagebox.showinfo("Tie Game", "Tie Game")
 	if(x):
 		if sign % 2 != 0:
